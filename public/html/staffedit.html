@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<title>Edit&Delete</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <script src="jquery-3.3.1.min.js"></script>
+   <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body onload="filldata2()">
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Staff Update From</h2>
+            <form class="form-vertical">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="SFname">Staff Full Name :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="sname" id="sFName" placeholder="Staff Full Name">
+                        <div id="#"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gender">Gender :</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="gender" id="staffGender">
+                            <option value="">Select Gender</option>
+                            <option value="male" id="optradio1">Male</option>
+                            <option value="female" id="optradio2">Female</option>
+                        </select></br></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Fname">Father Name :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="fname" name="FName" onblur="test1()"
+                            placeholder="Father Name">
+                        <div id="p1"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Mname">Mother Name :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="Mname" name="MName" onblur="test2()"
+                            placeholder="Mother Name">
+                        <div id="p2"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="dateofbirth">DateOfBirth :</label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control" id="DOB" name="DoB" onblur="test3()"
+                            placeholder="DateOfBirth">
+                        <div id="p3"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="CA1">Contact Address 1 :</label>
+                    <div class="col-sm-4">
+                        <!-- <input type="text" class="form-control" id="scls" name="scls" onblur="test4()" placeholder="Contact Address 1" required> -->
+                        <textarea class="form-control" rows="4" name="cntaddr1" id="addr1"
+                            placeholder="Describe 200 to 300 words"></textarea>
+                        <div id="p4"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="CA2">Contact Address 2 :</label>
+                    <div class="col-sm-4">
+                        <!-- <input type="email" class="form-control" id="email" name="email" onblur="test8()"  placeholder="Contact Address 2" required> -->
+                        <textarea class="form-control" rows="4" name="cntaddr2" id="addr2"
+                            placeholder="Describe 200 to 300 words"></textarea>
+                        <div id="p8"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="CA3">Contact Address 3 :</label>
+                    <div class="col-sm-4">
+                        <!-- <input type="text" class="form-control" id="bldgrp" name="bldgrp" onblur="test9()" placeholder="Contact Address 3" required> -->
+                        <textarea class="form-control" rows="4" name="cntaddr3" id="addr3"
+                            placeholder="Describe 200 to 300 words"></textarea>
+                        <div id="p9"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Cnumbr">Contact Number :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="cnumbr" name="cnum" placeholder="Contact Number">
+                        <div id="p5"></div></br>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="EMail">Email :</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" name="email" id="Email" onblur="test7()"
+                            placeholder="Example: abc@gmail.com">
+                        <div id="p7"></div></br>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="stffLanmrk">Staff LandMark :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="StffLnmrk" name="stFLnMrk" onblur="test11()"
+                            placeholder="Staff LandMark">
+                        <div id="p11"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="stFFCtv">Staff CTV :</br>(City, Town, Village)</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="StfCtv" name="StFfCtV" onblur="test12()"
+                            placeholder="Enter City, Town, Village">
+                        <div id="p12"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="states">State :</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="statelist" id="states">
+                            <option value="">Select State</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Orissa">Orissa</option>
+                            <option value="Pondicherry">Pondicherry</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttaranchal">Uttaranchal</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                    </div></br>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pncde">Pincode :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="Pincde" name="PnCde" onblur="test14()"
+                            placeholder="Pincode">
+                        <div id="p14"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="StaFFRle">Staff Role :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="StFRle" name="StFRle" onblur="test15()"
+                            onfocus="totdue1()" placeholder="Staff Role">
+                        <div id="p15"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Qulftn">Qualification :</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="Qulfctn" id="quLictn">
+                            <option value="">Select Qualification</option>
+                            <option value="phd" id="P.H.D">P.H.D</option>
+                            <option value="pg" id="pg1">Post Graduation</option>
+                            <option value="ug" id="M.Tech">M.Tech</option>
+                            <option value="inter" id="B.Tech">B.Tech</option>
+                        </select></br></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="exprnce">Experience :</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="Exprnce" id="ExPrnCe">
+                            <option value="">Select Years</option>
+                            <option value="1" id="optradio1">1</option>
+                            <option value="2" id="optradio2">2</option>
+                            <option value="3" id="optradio3">3</option>
+                            <option value="4" id="optradio4">4</option>
+                            <option value="5" id="optradio5">5</option>
+                            <option value="6" id="optradio6">6</option>
+                            <option value="7" id="optradio7">7</option>
+                            <option value="8" id="optradio8">8</option>
+                            <option value="9" id="optradio9">9</option>
+                            <option value="10" id="optradio10">10</option>
+                            <option value="11" id="optradio11">11</option>
+                            <option value="12" id="optradio12">12</option>
+                            <option value="13" id="optradio13">13</option>
+                            <option value="14" id="optradio14">14</option>
+                            <option value="15" id="optradio15">15</option>
+                        </select></br></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Subjcts">Subjects :</label>
+                    <div class="col-sm-4">
+                        <input type="checkbox" id="eng" name="English"> English &nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" id="hin"  name="Hindi"> Hindi </br>
+                        <input type="checkbox" id="tel" name="Telugu"> Telugu &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" id="sci" name="Science"> Science </br>
+                        <input type="checkbox" id="mat" name="Maths"> Maths &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" id="soc" name="Social"> Social Studies </br>
+                        <input type="checkbox" id="com" name="Computers"> Computers </br>
+                        </br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="StaFFRle">Salary :</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="salry" name="Salry" onblur="test15()"
+                            placeholder="Salary">
+                        <div id="p15"></div></br>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Qulftn">Languages Known :</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="lngkwn" id="Lngknw">
+                            <option value=""><b>-------------------Languages-----------------------</b></option>
+                            <option value="English" id="English">English</option>
+                            <option value="Hindi" id="Hindi">Hindi</option>
+                            <option value="Telugu" id="Telugu">Telugu</option>
+                        </select></br></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="ID">Staff ID</label>
+                    <div class="col-sm-4">
+
+                        <input type="text" class="form-control" name="id" id="sid" placeholder="Staff ID">
+                        <div id="#"></div></br>
+                    </div>
+                </div>
+                <button type="button" onclick="updtDate()" data-toggle="tooltip" title="ClickMe!"  style="margin-left: 18%;margin-top:1%;" class="btn btn-success">Update</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <script src="../js/staffupdate.js"></script>
+</body>
+
+</html>

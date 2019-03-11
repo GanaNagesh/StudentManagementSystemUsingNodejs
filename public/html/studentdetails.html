@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <style>
+        th {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: small;
+            text-align: center;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <h2> Admin Access the Student&Staff Data</h2>
+        <a href="/stdreg" class="btn btn-success">Add Student</a>
+        <button type="button" class="btn btn-success" id="btn" onclick="print1();$('#print').slideToggle('1000');">Student Data</button>
+        <a href="/staff" class="btn btn-success">Add Staff</a>
+        <button type="button" class="btn btn-success" id="btn1" onclick="print2();$('#get').slideToggle('1000');">Staff Data</button>
+        <a href="/logout" class="btn btn-success">Logout</a>
+    </div>
+
+    <div id="print"></div>
+    <div id="get"></div>
+
+
+
+    <!-- Student Details Get the Data From the Database -->
+    <script>
+
+        function print1() {
+            var htmldata = '';
+            $.ajax({
+                url: '/printdata',
+                type: 'Get',
+                dataType: "JSON",
+                success: function (data1) {
+
+                    console.log('success', data1);
+                    // var myobj = JSON.stringify(data1);
+                    // debugger;
+
+                    //document.getElementById("span1").innerHTML = data1;
+                    // data = data1;
+
+                    htmldata += '<html><body><div class="panel panel-success"><table class="table">'
+                    htmldata += '<tr><h4>Database Table</h4><th>ID</th><th>NAME</th><th>FATHER NAME</th><th>MOTHER NAME</th><th>STUDENT CLASS</th><th>ADDRESS</th><th>GENDER</th><th>PHONE NUMBER</th><th>EMAIL</th><th>BLOOD GROUP</th><th>BUS FACILITY</th><th>BUS FEE</th><th>STUDENT FEE</th><th>TOTAL FEE</th><th>TOTAL PAID</th><th>TOTAL DUE</th><th>STUDENT IMAGE</th><th>EDIT/DELETE</th></tr>'
+                    //  for(i=0; i<data.length;i++){
+                    // console.log("dfd",data1[i].username);
+                    $.each(data1, function (i, value) {
+                        htmldata += `<tr>
+                            <td>${value.id}</td><td>${value.name}</td><td>${value.Fname}</td>
+                            <td>${value.Mname}</td><td>${value.Sclass}</td><td>${value.Address}</td>
+                            <td>${value.gender}</td><td>${value.phonenumber}</td>
+                            <td>${value.email}</td><td>${value.bloodgrp}</td><td>${value.busfac}</td>
+                            <td>${value.busfee}</td><td>${value.stufee}</td><td>${value.totfee}</td>
+                            <td>${value.totpay}</td><td>${value.totdue}</td>
+                            <td><img src='${value.image}' height="100" width="100"/></td>
+                            <td><input type="button" class="btn btn-default btn-sm" value="edit" onclick=edit1('${value.email}')>
+                                <input type="button" class="btn btn-default btn-sm" id="btn" value="delete" onclick=delete1('${value.email}')></td>
+                            </tr>`
+                    });
+                    htmldata += '</table></div><body></html>'
+                    $('#print').html(htmldata);
+                },
+                error: function (errorThrown) {
+                    console.log('error', errorThrown);
+                }
+            });
+        }
+
+
+        function edit1(email) {
+            var email = email;
+            alert(email);
+            //window.location.href = "/public/html/edit.html?email=" + email;
+            window.location.href = "/editstudent/" + email;
+        }
+
+
+       
+        function delete1(email) {
+                alert(email);
+                var a = {}
+                a.email = email;
+                $.ajax({
+                    url: '/deleterow/' + a.email,
+                    type: 'POST',
+                    success: function (data) {
+                        console.log("success");
+                    },
+                })
+            }
+
+        //  Staff Details Get the Data From the Database 
+
+        function print2() {
+            var htmldata = '';
+            $.ajax({
+                url: '/getdata',
+                type: 'GET',
+                dataType: 'JSON',
+                success: function (data1) {
+                    console.log('success', data1)
+
+                    htmldata += `<html><div class="form-vertical"><div class="panel panel-success"><table class="table"><tr><h4>Staff Database Table</h4><th>ID</th><th>STAFF FULLNAME</th><th>GENDER</th>
+                        <th>FATHER NAME</th><th>MOTHER NAME</th><th>DATE OF BIRTH</th>
+                        <th>CONTACT ADDRESS 1</th><th>CONTACT ADDRESS 2</th><th>CONTACT ADDRESS 3</th>
+                        <th>CONTACT NUMBER</th><th>EMAIL</th><th>LANDMARK</th><th>LOCATION</th><th>STATE</th>
+                        <th>PINCODE</th><th>ROLE</th><th>IMAGE</th><th>EXPERIENCE</th>
+                        <th>QUALIFICATION</th><th>LANGUAGE</th><th>SALARY</th><th>ENGLISH</th><th>HINDI</th>
+                        <th>TELUGU</th><th>SCIENCE</th><th>MATHS</th><th>SOCIAL</th><th>COMPUTERS</th><th>EDIT/DELETE</th>`
+
+                    $.each(data1, function (i, value) {
+                        htmldata +=`<tr>
+                            <td>${value.id}</td><td>${value.staffFullName}</td><td>${value.staffGender}</td><td>${ value.fatherName}</td>
+                            <td>${value.motherName }</td><td>${ value.staffdob }</td>
+                            <td>${value.staffContactAdd1}</td><td>${value.staffContactAdd2}</td>
+                            <td>${value.staffContactAdd3}</td><td>${value.staffContactNumber}</td>
+                            <td>${value.staffEmail}</td><td>${value.staffLandmark}</td>
+                            <td>${value.staffctv}</td><td>${value.staffState}</td><td>${value.staffpincode}</td>
+                            <td>${value.staffRole}</td><td><img src='${value.stImageUrl}'height="100" width="100"/></td>
+                            <td>${value.experience}</td><td>${value.qualification}</td>
+                            <td>${value.language}</td><td>${value.salary}</td>
+                            <td>${value.english}</td><td>${value.hindi}</td><td>${value.telugu}</td>
+                            <td>${value.science}</td><td>${value.maths}</td><td>${value.social}</td>
+                            <td>${value.computers}</td><td><input type="button" class="btn btn-default btn-sm" value="edit" onclick=edit2('${value.staffEmail}')><input type="button" class="btn btn-default btn-sm" value="delete" onclick=delete2('${value.staffEmail}')></td>
+                            </tr>`
+                        });
+                    htmldata += '<html></div></div>'
+                    $("#get").html(htmldata);
+                },
+                error: function (errorThrown) {
+                    console.log('error', errorThrown);
+                }
+            });
+        }
+
+        function edit2(staffEmail){
+            var email = staffEmail;
+            alert(email);
+            window.location.href= "/updatestudent/" + email;
+        }
+
+        function delete2(staffEmail){
+            alert(staffEmail);
+            var data = staffEmail;
+            $.ajax({
+                url:'/deleterow1/' + data,
+                type:'POST',
+                success: function(data){
+                    window.location.href= '/stdtls';
+                }
+            })
+        }
+
+   </script>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

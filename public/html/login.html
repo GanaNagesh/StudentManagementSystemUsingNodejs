@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="site-header sticky-top py-1">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                <a class="py-2" href="#">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                        <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                        <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                        <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                        <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                        <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                    </svg>
+                </a>
+
+                <a class="py-2 d-none d-md-inline-block" href="#">Home</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Class</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Staff</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Updates</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Sports</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">About</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+            </svg>
+
+            <div class="my-3 p-3">
+                <h1 class="display-10">H.R. MODEL SCHOOL</h1>
+                <p class="lead">Power And Knowledge in this School.</p>
+            </div>
+        </div>
+
+        <!-- Student Login Form -->
+
+        <div class="container">
+
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Student Login</h3>
+
+                        <div class="card-body">
+                            <!-- <span id="msg" style="color: red"></span> -->
+
+                            <p id="err-msg" style="color :red">Id or password not match</p>
+                            <!-- <p id="suc-msg" style="color :green">Id or password not matc</p> -->
+
+                            <form action="/stulgn" method="POST">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="stuid" id="stdid" class="form-control"
+                                        placeholder="Student ID" required>       
+                                </div>
+                                
+
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" name="stuPwd" id="stdPwd" class="form-control"
+                                        placeholder="Password" required>
+                                </div>
+                                <button id="send-btn" type="submit" onclick="getdata()" class="btn btn-success">Login</button>
+                            </form>
+
+                        </div>
+                        <hr>
+                        <h3>Staff Login</h3>
+
+                        <div class="card-body">
+                                <p id="err-msg1" style="color :red">Id or password not match</p>
+                            <form action="/stflgn2" method="POST">
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="stfid" id="stFid" class="form-control"
+                                        placeholder="Staff ID" required>
+                                </div>
+
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" name="stfPwd" id="stFPwd" class="form-control"
+                                        placeholder="Password" required>
+                                </div>
+                                <button type="submit" onclick="getdata2()" class="btn btn-success">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div align="center"><h1>Welcome to the H.R Model School</h1></div>
+    <!-- /*****************END**********************/ -->
+
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="first-slide" src="../caraousal images/student2.jpg" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1>Believing in yourself</h1>
+                        <p>“Successful and unsuccessful people do not vary greatly in their abilities. ..</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign In today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="second-slide" src="../caraousal images/student5.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Cultivating a success mindset</h1>
+                        <p>“Failure is the opportunity to begin again more intelligently.”</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="third-slide" src="../caraousal images/student4.jpg" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption text-right">
+                        <h1>Overcoming procrastination</h1>
+                        <p>Success is the sum of small efforts, repeated day in and day out. – Robert Collier</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+
+
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/front-1551161984958.jpg" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Department</h2>
+                <p>FenixEdu Academic is an open source Student Information System. It provides the back office system
+                    where schools manage students, teachers, degrees and courses.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/front-1551161984958.jpg" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Books, Library</h2>
+                <p>FenixEdu Academic is an open source Student Information System. It provides the back office system
+                    where schools manage students, teachers, degrees and courses.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="../images/front-1551161984958.jpg" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Management</h2>
+                <p>FenixEdu Academic is an open source Student Information System. It provides the back office system
+                    where schools manage students, teachers, degrees and courses.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+       <br /><br /><br /><br />
+       
+        <footer class="container py-5">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                        <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                        <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                        <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                        <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                        <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                    </svg>
+                    <small class="d-block mb-3 text-muted">&copy; 2018-2019</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Cool stuff</a></li>
+                        <li><a class="text-muted" href="#">Random feature</a></li>
+                        <li><a class="text-muted" href="#">Team feature</a></li>
+                        <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                        <li><a class="text-muted" href="#">Another one</a></li>
+                        <li><a class="text-muted" href="#">Last time</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Management</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Resource</a></li>
+                        <li><a class="text-muted" href="#">Resource name</a></li>
+                        <li><a class="text-muted" href="#">Another resource</a></li>
+                        <li><a class="text-muted" href="#">Final resource</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Business</a></li>
+                        <li><a class="text-muted" href="#">Education</a></li>
+                        <li><a class="text-muted" href="#">Government</a></li>
+                        <li><a class="text-muted" href="#">Gaming</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Team</a></li>
+                        <li><a class="text-muted" href="#">Locations</a></li>
+                        <li><a class="text-muted" href="#">Privacy</a></li>
+                        <li><a class="text-muted" href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <br /><br />
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2018-2019 Oakridge IT Solutions Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a
+                    href="#">Terms & Conditions</a></p>
+        </footer>
+        <script src="../js/studntjs.js"></script>
+        <script src="../js/staffjs.js"></script>
+</body>
+
+</html>

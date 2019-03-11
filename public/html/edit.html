@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Update</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.js"
+            integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+
+<body onload="filldata()">
+        <div class="jumbotron">
+
+    <div class="container">
+            <h2>STUDENT EDIT</h2>
+    
+    
+            <form class="form-vertical" action="/stdtls">
+    
+                <!-- <div class="form-group">
+                    <label class="control-label col-sm-2" for="ID">Student ID</label>
+                    <div class="col-sm-4">
+    
+                        <input type="text" class="form-control" name="id" id="sid" placeholder="Student ID" required>
+                    </div>
+                </div> -->
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="name" onblur="test1()" placeholder="Name" required>
+                        <div id="p1"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Father Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="fname" onblur="test2()" placeholder="Father Name" required>
+                        <div id="p2"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Mother Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="mname" onblur="test3()" placeholder="Mother Name" required>
+                        <div id="p3"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="cls">Student Class</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="scls"  onblur="test4()"
+                            placeholder="Student Class" required>
+                        <div id="p4"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Addr">Address</label>
+                    <div class="col-sm-4">
+                        <textarea class="form-control" rows="4" id="addr" onblur="test5()" placeholder="Address"
+                            required></textarea>
+                        <div id="p5"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <!-- <label for="studentGender">Gender :</label> -->
+                    <label class="control-label col-sm-2" for="gender">Gender</label>
+                    <div class="col-sm-4">
+                        <select class="form-control"  id="genderForStd">
+                            <option value="male" >Male</option>
+                            <option value="female">Female</option>
+                        </select></br></div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="phoneNumber">phoneNumber</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="pnum" onblur="test7()"  placeholder="9999999999" required>
+                        <div id="p7"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="email" onblur="test8()"  placeholder="Example : abc@gmail.com" required>
+                        <div id="p8"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="BloodGroup">BloodGroup</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="bldgrp"  onblur="test9()" placeholder="BloodGroup" required>
+                        <div id="p9"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="stbusfec" >Busfacility</label>
+                    <div class="col-sm-4">
+                        <select class="form-control"  id="busfac">
+                            <option value="yes" id="busfac1">Yes</option>
+                            <option value="no" id="busfac2">No</option>
+                        </select></br></div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="busfe">Bus Fee</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="busfe"  onblur="test11()" placeholder="BusFee" required>
+                        <div id="p11"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="stfe">Student Fee</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="stfe" onblur="test12()" placeholder="Student Fee" required>
+                        <div id="p12"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="totfe">Total Fee</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="totfe" onblur="test13()" onfocus="busstuttl()" placeholder="Total Fee" required>
+                        <div id="p13"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="totpay">Total Paid</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="totpay"  onblur="test14()" placeholder="Total Paid" required>
+                        <div id="p14"></br></div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="totdue">Total Due</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="totdue"  onblur="test15()"  onfocus="totdue1()" placeholder="Total Due" required>
+                        <div id="p15"></br></div></br>
+                    </div>
+                </div>
+    
+            <input type="submit" Value="UPDATE" style="margin-left: 17%;margin-top:-2%;" onclick="update1()">
+            </form>
+        </div>
+    </div>
+</body>
+
+<script src="/js/main1.js"></script>
+
+</html>
