@@ -69,10 +69,7 @@ router.get('/invoice/:id', function (req, res, next) {
         pdfDoc.pipe(fs.createWriteStream(invoicePath));
         pdfDoc.pipe(res);
 
-        pdfDoc.fontSize(30).text('Student Details:', {
-            underline: true
-        });
-
+        pdfDoc.fontSize(30).text('Student Details:',);
         pdfDoc.fontSize(26).text('----------------------------------------------------');
         pdfDoc.fontSize(24).text('Student Id:' + user[0].id);
         pdfDoc.fontSize(24).text('Student name:' + user[0].name);
@@ -168,10 +165,6 @@ router.get('/get/:id', function (req, res) {
 })
 
 
-
-
-
-
 /********** FILE UPLOADING USING MULTER ***********/
 var storage = multer.diskStorage({
     destination: './public/images',
@@ -254,7 +247,6 @@ router.post('/addstudent', function (req, res) {
                         from: 'hindustanschool1@gmail.com',
                         to: studntMail,
                         subject: 'Sending Email using Node.js',
-                        text: 'That was easy!',
                         html: output
                         };
                       
@@ -288,6 +280,7 @@ router.get('/printdata', function (req, res) {
         }
     });
 });
+
 
 /*********Filling data in Student Table********/
 
